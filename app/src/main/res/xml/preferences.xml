@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Preference
+        android:title="Preference"/>
+    <info.shibafu528.preference.fix.v7.numberpicker.NumberPickerPreference
+        android:key="pref"
+        android:title="NumberPickerPreference"
+        app:pref_minValue="0"
+        app:pref_maxValue="100"/>
+    <info.shibafu528.preference.fix.v7.numberpicker.NumberPickerPreference
+        android:key="pref2"
+        android:title="NumberPickerPreference2"
+        android:dialogTitle="タイトルだよ"
+        android:dialogMessage="煩悩の数を入れてね"
+        android:defaultValue="108"
+        app:pref_minValue="0"
+        app:pref_maxValue="108"/>
+</PreferenceScreen>
