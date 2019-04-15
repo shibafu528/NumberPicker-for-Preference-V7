@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 28
@@ -29,4 +31,63 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+// Bintray
+
+group = 'info.shibafu528.preference.fix'
+archivesBaseName = 'v7-numberpicker'
+version = '1.0.0'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty('bintray.user') ?: System.getenv('BINTRAY_USER')
+    key = properties.getProperty('bintray.apikey') ?: System.getenv('BINTRAY_API_KEY')
+    configurations = ['archives']
+    pkg {
+        repo = 'maven'
+        name = 'support-v7-numberpicker'
+        description = "NumberPickerPreference for preference-v7-fix"
+        publicDownloadNumbers = true
+        licenses = ['Apache-2.0']
+        websiteUrl = 'https://github.com/shibafu528/NumberPicker-for-Preference-V7'
+        vcsUrl = 'https://github.com/shibafu528/NumberPicker-for-Preference-V7.git'
+        githubRepo = 'shibafu528/NumberPicker-for-Preference-V7'
+        version {
+            name = this.version
+            released = new Date()
+        }
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name 'NumberPickerPreference for preference-v7-fix'
+                url 'https://github.com/shibafu528/NumberPicker-for-Preference-V7'
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'shibafu528'
+                        name 'shibafu'
+                        email 'shibafu528@gmail.com'
+                    }
+                }
+                scm {
+                    connection 'https://github.com/shibafu528/NumberPicker-for-Preference-V7.git'
+                    developerConnection 'https://github.com/shibafu528/NumberPicker-for-Preference-V7.git'
+                    url 'https://github.com/shibafu528/NumberPicker-for-Preference-V7'
+                }
+            }
+        }
+    }
 }
