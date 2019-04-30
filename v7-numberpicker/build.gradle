@@ -37,7 +37,7 @@ dependencies {
 
 group = 'info.shibafu528.preference.fix'
 archivesBaseName = 'v7-numberpicker'
-version = '1.0.0'
+version = '1.0.1'
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
