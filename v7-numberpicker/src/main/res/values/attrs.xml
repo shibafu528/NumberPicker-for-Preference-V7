@@ -3,5 +3,9 @@
     <declare-styleable name="NumberPickerPreference">
         <attr name="pref_minValue" format="integer"/>
         <attr name="pref_maxValue" format="integer"/>
+        <attr name="pref_height" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
     </declare-styleable>
 </resources>

@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v7.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 
 import com.takisoft.fix.support.v7.preference.PreferenceFragmentCompat;
 
@@ -16,6 +17,7 @@ public class NumberPickerPreference extends DialogPreference {
     private int value;
     private int minValue;
     private int maxValue;
+    private int height;
 
     static {
         PreferenceFragmentCompat.registerPreferenceFragment(NumberPickerPreference.class, NumberPickerPreferenceDialogFragmentCompat.class);
@@ -41,6 +43,7 @@ public class NumberPickerPreference extends DialogPreference {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NumberPickerPreference, defStyleAttr, 0);
         minValue = a.getInteger(R.styleable.NumberPickerPreference_pref_minValue, 0);
         maxValue = a.getInteger(R.styleable.NumberPickerPreference_pref_maxValue, 1);
+        height = a.getLayoutDimension(R.styleable.NumberPickerPreference_pref_height, ViewGroup.LayoutParams.MATCH_PARENT);
         a.recycle();
     }
 
@@ -66,6 +69,14 @@ public class NumberPickerPreference extends DialogPreference {
 
     public void setMaxValue(int maxValue) {
         this.maxValue = maxValue;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     @Override

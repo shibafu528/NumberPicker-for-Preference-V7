@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- values/dimens.xml -->
+<resources>
+    <dimen name="match_parent">-1px</dimen>
+
+    <dimen name="pref2_height">@dimen/match_parent</dimen>
+</resources>

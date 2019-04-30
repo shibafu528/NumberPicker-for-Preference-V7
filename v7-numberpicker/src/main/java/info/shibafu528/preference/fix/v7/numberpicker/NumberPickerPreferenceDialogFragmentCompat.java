@@ -4,11 +4,10 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.PreferenceDialogFragmentCompat;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.NumberPicker;
-import android.widget.TextView;
 
 public class NumberPickerPreferenceDialogFragmentCompat extends PreferenceDialogFragmentCompat implements NumberPicker.OnValueChangeListener {
     private int value;
@@ -35,6 +34,10 @@ public class NumberPickerPreferenceDialogFragmentCompat extends PreferenceDialog
         numberPicker.setMaxValue(preference.getMaxValue());
         numberPicker.setValue(value);
         numberPicker.setOnValueChangedListener(this);
+
+        ViewGroup.LayoutParams lp = numberPicker.getLayoutParams();
+        lp.height = preference.getHeight();
+        numberPicker.setLayoutParams(lp);
 
         builder.setView(view)
                 .setOnDismissListener(new DialogInterface.OnDismissListener() {

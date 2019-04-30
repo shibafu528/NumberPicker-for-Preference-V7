@@ -15,5 +15,6 @@
         android:dialogMessage="煩悩の数を入れてね"
         android:defaultValue="108"
         app:pref_minValue="0"
-        app:pref_maxValue="108"/>
+        app:pref_maxValue="108"
+        app:pref_height="@dimen/pref2_height"/>
 </PreferenceScreen>
